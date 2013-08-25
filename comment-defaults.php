@@ -5,7 +5,7 @@
 	GitHub URI: https://github.com/kasparsd/comment-defaults
 	Description: Enable or disable comments on post type basis and perform batch open/close operations
 	Author: Kaspars Dambis
-	Version: 1.3
+	Version: 1.3.1
 	Author URI: http://konstruktors.com
 */
 
@@ -99,6 +99,9 @@ function comment_defaults_settings_bulk_render() {
 	$fields = array();
 
 	foreach ( $post_types as $post_type ) {
+
+		if ( ! post_type_supports( $post_type->name, 'comments' ) )
+			continue;
 
 		$bulk_links = array(
 				'open' => sprintf(
