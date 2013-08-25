@@ -154,7 +154,7 @@ function comment_defaults_settings_bulk_render() {
 /**
  * Maybe do a batch operation on comments
  */
-add_action( 'admin_head-options-discussion.php', 'maybe_comment_defaults_batch_process' );
+add_action( 'load-options-discussion.php', 'maybe_comment_defaults_batch_process' );
 
 function maybe_comment_defaults_batch_process() {
 
@@ -167,7 +167,7 @@ function maybe_comment_defaults_batch_process() {
 	if ( ! current_user_can( 'install_plugins' ) )
 		return;
 
-	$post_type = $_GET['post_type'];
+	$post_type = $_GET['batch_post_type'];
 	$action = $_GET['comment_defaults_batch'];
 
 	if ( ! in_array( $action, array( 'open', 'closed' ) ) )
