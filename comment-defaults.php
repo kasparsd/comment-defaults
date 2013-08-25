@@ -5,7 +5,7 @@
 	GitHub URI: https://github.com/kasparsd/comment-defaults
 	Description: Enable or disable comments on post type basis and perform batch open/close operations
 	Author: Kaspars Dambis
-	Version: 1.2
+	Version: 1.3
 	Author URI: http://konstruktors.com
 */
 
@@ -62,10 +62,10 @@ function comment_defaults_settings_render() {
 			$settings[ $post_type->name ]['comment_status'] = false;
 
 		$fields[] = sprintf(
-				'<label>
+				'<li><label>
 					<input type="hidden" name="comment_defaults_settings[%s][comment_status]" value="0" />
 					<input type="checkbox" name="comment_defaults_settings[%s][comment_status]" value="1" %s /> %s
-				</label>',
+				</label></li>',
 				esc_attr( $post_type->name ),
 				esc_attr( $post_type->name ),
 				checked( $settings[ $post_type->name ]['comment_status'], true, false ),
@@ -79,10 +79,10 @@ function comment_defaults_settings_render() {
 	printf( 
 		'<fieldset>
 			<p>%s</p>
-			%s
+			<ul>%s</ul>
 		</fieldset>',
 		esc_html__( 'Disable comments by default for these post types:', 'comment-defaults' ),
-		implode( "<br />\n", $fields ) 
+		implode( "\n", $fields ) 
 	);
 
 }
