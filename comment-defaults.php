@@ -5,7 +5,7 @@
 	GitHub URI: https://github.com/kasparsd/comment-defaults
 	Description: Enable or disable comments on post type basis and perform batch open/close operations
 	Author: Kaspars Dambis
-	Version: 1.3.1
+	Version: 1.4
 	Author URI: http://konstruktors.com
 */
 
